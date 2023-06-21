@@ -73,5 +73,7 @@ export const updateCategory = async (req, res) => {
     if (!category) return res.status(404).json({ status: 'Updated Faild' });
     // Return Query
     return res.status(200).json({ category });
-  } catch (error) {}
+  } catch (error) {
+    return res.json(error.message);
+  }
 };
