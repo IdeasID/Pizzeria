@@ -1,6 +1,6 @@
 import Product from '../models/product.model.js';
 
-// Method Get All Procuts
+// Method Get All Products
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find().populate('categorias');
@@ -12,7 +12,7 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// Method Get One Procuts
+// Method Get One Products
 export const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -27,7 +27,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
-// Method POST Create Procuts
+// Method POST Create Products
 export const createProduct = async (req, res) => {
   try {
     const { nombre, precio, categorias, stock } = req.body;
@@ -45,7 +45,7 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// Method PUT Update Procuts
+// Method PUT Update Products
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -70,7 +70,7 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// Method DELETE Eliminar Procuts
+// Method DELETE Eliminar Products
 export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
