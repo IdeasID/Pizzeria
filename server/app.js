@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 // Import Routes
 import CategoryRoutes from './routes/category.routes.js';
 import ProductRoutes from './routes/product.routes.js';
+import UserRoutes from './routes/user.routes.js';
 // Instanciando Express
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(cookieParser());
 // EndPoint
 app.use('/api/categorys', CategoryRoutes);
 app.use('/api/products', ProductRoutes);
+app.use('/api/users', UserRoutes);
 
 export default app;

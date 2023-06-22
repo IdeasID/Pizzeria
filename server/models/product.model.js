@@ -4,7 +4,9 @@ const productSchena = new Schema(
   {
     nombre: { type: String, require: true, trim: true },
     precio: { type: Number, require: true },
-
+    description: { type: String },
+    img: { type: String, default: '' },
+    inCart: { type: Boolean, default: false },
     // Relacion con la Schema de Category
     categorias: [
       {
