@@ -30,12 +30,13 @@ export const getProductById = async (req, res) => {
 // Method POST Create Procuts
 export const createProduct = async (req, res) => {
   try {
-    const { nombre, precio, categorias, stock } = req.body;
+    const { nombre, precio, categorias, stock, img } = req.body;
     const newProduct = new Product({
       nombre,
       precio,
       categorias,
       stock,
+      img,
     });
 
     const result = await newProduct.save();

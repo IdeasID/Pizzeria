@@ -38,9 +38,6 @@ export const createUser = async (req, res) => {
     const usefound = await User.findOne({ email });
     if (usefound) return res.status(400).json(['Email already used']);
 
-    //Encriptando el password con bcrypt
-    const hashPassword = await bcrypt.hash(password, 10);
-
     const newUser = new User({
       email,
       username,
