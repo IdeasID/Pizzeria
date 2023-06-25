@@ -30,10 +30,11 @@ export const getProductById = async (req, res) => {
 // Method POST Create Products
 export const createProduct = async (req, res) => {
   try {
-    const { nombre, precio, categorias, stock, img } = req.body;
+    const { nombre, precio, description, categorias, stock, img } = req.body;
     const newProduct = new Product({
       nombre,
       precio,
+      description,
       categorias,
       stock,
       img,
@@ -50,12 +51,13 @@ export const createProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    const { nombre, precio, categorias, stock } = req.body;
+    const { nombre, precio, description, categorias, stock } = req.body;
     const updateProduct = await Product.findByIdAndUpdate(
       id,
       {
         nombre,
         precio,
+        description,
         categorias,
         stock,
       },
