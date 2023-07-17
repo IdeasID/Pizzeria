@@ -8,8 +8,8 @@ export const register = async (req, res) => {
   const { email, username, password, phone, roles } = req.body;
   try {
     //validacione y encriptacion del password
-    const usefound = await User.findOne({ email });
-    if (usefound) return res.status(400).json(['Email already used']);
+    const usefound = await User.findOne({ username });
+    if (usefound) return res.status(400).json(['Username already used']);
 
     const newUser = new User({
       email,
@@ -37,17 +37,18 @@ export const register = async (req, res) => {
       email: result.email,
       phone: result.phone,
       token: token,
+      status: 'success registered user',
     });
-  } catch (error) {
-    res.json(error);
+  } catch (e) {
+    res.json({ error: e.message });
   }
 };
 
 //METHOD POST PARA LOGIN USER
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
   try {
-    const userfound = await User.findOne({ email });
+    const userfound = await User.findOne({ username });
     if (!userfound) return res.status(404).json(['user not found']);
 
     const isMatch = await bcrypt.compare(password, userfound.password);
@@ -57,6 +58,8 @@ export const login = async (req, res) => {
     res.cookie('token', token);
 
     return res.status(200).json({
+      token: token,
+      status: 'success loging user',
       id: userfound._id,
       username: userfound.username,
       email: userfound.email,

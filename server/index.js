@@ -5,5 +5,6 @@ import { connectDb } from './db.js';
 connectDb('127.0.0.1', 'dbproyect');
 
 // Method para iniciar la escucha de express RUN
-app.listen(3000);
-console.log('Server is Runing');
+app.listen(3000, () => {
+  console.log('Server is Runing');
+});
