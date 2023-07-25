@@ -6,6 +6,7 @@ import { createRoles } from './lib/init.js';
 // Import Routes
 import CategoryRoutes from './routes/category.routes.js';
 import ProductRoutes from './routes/product.routes.js';
+import DrinkRoutes from './routes/drink.routes.js';
 import UserRoutes from './routes/user.routes.js';
 import RoleRoutes from './routes/role.routes.js';
 import AuthRoutes from './routes/auth.routes.js';
@@ -22,6 +23,7 @@ app.use(cookieParser());
 // EndPoint
 app.use('/api/categorys', CategoryRoutes);
 app.use('/api/products', ProductRoutes);
+app.use('/api/drinks', DrinkRoutes);
 app.use('/api/users', UserRoutes);
 app.use('/api/roles', RoleRoutes);
 app.use('/api/auth', AuthRoutes);
