@@ -1,16 +1,16 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema } from "mongoose";
 
 const productSchena = new Schema(
   {
     nombre: { type: String, require: true, trim: true },
     precio: { type: Number, require: true },
     description: { type: String },
-    img: { type: String, default: '' },
+    img: { type: String, default: "" },
     inCart: { type: Boolean, default: false },
     // Relacion con la Schema de Category
     categorias: [
       {
-        ref: 'Category',
+        ref: "Category",
         type: Schema.Types.ObjectId,
       },
     ],
@@ -19,4 +19,4 @@ const productSchena = new Schema(
   { versionKey: false, timestamps: true }
 );
 
-export default model('Product', productSchena);
+export default model("Product", productSchena);

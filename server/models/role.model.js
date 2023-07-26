@@ -1,5 +1,5 @@
-import { model, Schema } from 'mongoose';
-export const ROLES = ['user', 'admin'];
+import { model, Schema } from "mongoose";
+export const ROLES = ["user", "admin"];
 const roleSchema = new Schema(
   {
     name: { type: String, require: true },
@@ -10,4 +10,4 @@ const roleSchema = new Schema(
   }
 );
 
-export default model('Role', roleSchema);
+export default model("Role", roleSchema);

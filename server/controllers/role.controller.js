@@ -1,10 +1,10 @@
-import Role from '../models/role.model.js';
+import Role from "../models/role.model.js";
 
 // Method GET ALL ROLES
 export const getRoles = async (req, res) => {
   try {
     const roles = await Role.find();
-    if (!roles) return res.status(404).json({ msg: 'Role not Found' });
+    if (!roles) return res.status(404).json({ msg: "Role not Found" });
     return res.status(200).json(roles);
   } catch (error) {
     return res.status(500).json(error.message);
@@ -26,7 +26,7 @@ export const getRolesById = async (req, res) => {
   try {
     const { id } = req.params;
     const role = await Role.findById(id);
-    if (!role) return res.status(404).json({ msg: 'Role not Found' });
+    if (!role) return res.status(404).json({ msg: "Role not Found" });
 
     return res.status(200).json(role);
   } catch (error) {
@@ -56,7 +56,7 @@ export const deleteRole = async (req, res) => {
     const { id } = req.params;
     const deleteRole = await Role.findByIdAndDelete(id);
 
-    if (!deleteRole) return res.status(404).json({ msg: 'Role not Found' });
+    if (!deleteRole) return res.status(404).json({ msg: "Role not Found" });
 
     return res.status(200).json(deleteRole);
   } catch (error) {

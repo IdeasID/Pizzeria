@@ -1,6 +1,6 @@
 //Import Model Category
-import { json } from 'express';
-import Category from '../models/category.model.js';
+import { json } from "express";
+import Category from "../models/category.model.js";
 
 // Method Get Traer todas las categorias
 export const getCategorys = async (req, res) => {
@@ -20,7 +20,7 @@ export const getCategoryById = async (req, res) => {
     const category = await Category.findById(id);
 
     if (!category)
-      return res.status(404), json({ msg: 'Category no encontrada' });
+      return res.status(404), json({ msg: "Category no encontrada" });
 
     return res.status(200).json(category);
   } catch (error) {
@@ -50,7 +50,7 @@ export const deleteCategory = async (req, res) => {
     const { id } = req.params;
     const category = await Category.findByIdAndRemove(id);
     // Validate category existe
-    if (!category) return res.status(404).json({ msg: 'Task not found' });
+    if (!category) return res.status(404).json({ msg: "Task not found" });
 
     return res.status(200).json(category);
   } catch (error) {
@@ -70,7 +70,7 @@ export const updateCategory = async (req, res) => {
     );
 
     //Validate query
-    if (!category) return res.status(404).json({ status: 'Updated Faild' });
+    if (!category) return res.status(404).json({ status: "Updated Faild" });
     // Return Query
     return res.status(200).json({ category });
   } catch (error) {

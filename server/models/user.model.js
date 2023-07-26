@@ -1,5 +1,5 @@
-import { model, Schema } from 'mongoose';
-import bcrypt from 'bcryptjs';
+import { model, Schema } from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new Schema(
   {
@@ -9,7 +9,7 @@ const userSchema = new Schema(
     phone: { type: String, require: true },
     roles: [
       {
-        ref: 'Role',
+        ref: "Role",
         type: Schema.Types.ObjectId,
       },
     ],
@@ -30,4 +30,4 @@ userSchema.statics.comparePassword = async (password, recivePassword) => {
   return await bcrypt.compare(password, recivePassword);
 };
 
-export default model('User', userSchema);
+export default model("User", userSchema);

@@ -1,7 +1,7 @@
-import User from '../models/user.model.js';
-import Role from '../models/role.model.js';
-import bcrypt from 'bcryptjs';
-import { createAccessToken } from '../lib/token.util.js';
+import User from "../models/user.model.js";
+import Role from "../models/role.model.js";
+import bcrypt from "bcryptjs";
+import { createAccessToken } from "../lib/token.util.js";
 
 //METHOD POST PARA REGISTRAR USER
 export const register = async (req, res) => {
@@ -9,7 +9,7 @@ export const register = async (req, res) => {
   try {
     //validacione y encriptacion del password
     const usefound = await User.findOne({ email });
-    if (usefound) return res.status(400).json(['Email already used']);
+    if (usefound) return res.status(400).json(["Email already used"]);
 
     const newUser = new User({
       email,
@@ -22,14 +22,14 @@ export const register = async (req, res) => {
       const foundRole = await Role.find({ name: { $in: roles } });
       newUser.roles = foundRole.map((role) => role._id);
     } else {
-      const role = await Role.findOne({ name: 'user' });
+      const role = await Role.findOne({ name: "user" });
       newUser.roles = [role._id];
     }
     const result = await newUser.save();
 
     //Create Token y guardarlo en los cookies
     const token = await createAccessToken({ id: result._id });
-    res.cookie('token', token);
+    res.cookie("token", token);
 
     return res.status(200).json({
       id: result._id,
@@ -48,13 +48,13 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const userfound = await User.findOne({ email });
-    if (!userfound) return res.status(404).json(['user not found']);
+    if (!userfound) return res.status(404).json(["user not found"]);
 
     const isMatch = await bcrypt.compare(password, userfound.password);
-    if (!isMatch) return res.status(400).json(['Incorrect password']);
+    if (!isMatch) return res.status(400).json(["Incorrect password"]);
 
     const token = await createAccessToken({ id: userfound._id });
-    res.cookie('token', token);
+    res.cookie("token", token);
 
     return res.status(200).json({
       id: userfound._id,
@@ -68,6 +68,6 @@ export const login = async (req, res) => {
 };
 //METHOD POST PARA LOGOUT USER
 export const logout = (req, res) => {
-  res.cookie('token', '', { expires: new Date(0) });
-  return res.status(200).json({ status: 'success logout' });
+  res.cookie("token", "", { expires: new Date(0) });
+  return res.status(200).json({ status: "success logout" });
 };
