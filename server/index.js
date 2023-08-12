@@ -9,4 +9,4 @@ connectDb(urlDB, db);
 
 // Method para iniciar la escucha de express RUN
 app.listen(3000);
-console.log("Server is Runing");
+console.log('Server is Runing');

@@ -1,0 +1,57 @@
+# Request para crear colecciones en mongo
+
+#PRODUCTOS
+    localhost:3000/api/products/
+    {
+        "nombre": "Coca-Cola",
+        "precio": 5,
+        "description": "Coca-Cola",
+        "img": "Foto Coca-Cola",
+        "inCart": true,
+        "categorias": ["649c5a9793239ecc3139c429"],
+        "stock": 30
+    }
+
+#BEBIDAS
+    localhost:3000/api/drinks/
+    {
+        "name": "Seven-UP",
+        "price": 4.5,
+        "description": "Seven-UP de 2lts",
+        "img": "Foto Seven-UP",
+        "stock": 8,
+        "size" : "2L",
+        "category": "Refrescos"
+    }
+
+#CATEGORIAS
+    localhost:3000/api/categorys/
+    {
+        "nombre":"Refrescos"
+    }
+
+#PEDIDOS
+    localhost:3000/api/orders/
+    {
+        "products":["649c8de7e86abb04c09b51bc", "649c8d86e86abb04c09b51b8"],
+        "client":"649caeeb461c9538a648ad02"
+    }
+
+#CLIENTES
+    localhost:3000/api/clients
+    {
+        "name": "Jhony Hernandez",
+        "email": "jhonyh00@hotmail.com",
+        "phone": "584141015255"
+    }
+
+#USUARIOS
+    localhost:3000/api/users/
+    {
+        "email":"jhonyh09@hotmail.com",
+        "username":"jhony",
+        "password":"jhony",
+        "phone": "584141015255",
+        "Role":"649c590932a4e44684b3e822"
+    
+    }
