@@ -1,0 +1,12 @@
+.ocultar {
+    transform: translateX(0px);
+
+}
+
+.visible {
+    transform: translateX(118px);
+}
+
+.desabilitar {
+    transform: translateX(273px);
+}
