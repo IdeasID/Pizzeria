@@ -1,5 +1,6 @@
 import NavbarInv from "./Header/NavbarInv";
 import { CardProducto } from "./components/cardEditProducto/CardProducto.jsx";
+
 function App() {
   return (
     <>
@@ -7,6 +8,7 @@ function App() {
       <CardProducto />
     </>
   );
+  
 }
 
 export default App;

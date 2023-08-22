@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nodemon ./server/index.js"
+    "dev": "nodemon ./server/index.js"
   },
   "author": "",
   "license": "ISC",
